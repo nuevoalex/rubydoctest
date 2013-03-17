@@ -1,3 +1,9 @@
+== 1.0.1 2013-03-17
+
+* Removed website and textmate plugin. Keeping this focused on doctest.
+* Made rake runnable.
+* Made the tests runnable.
+
 == 1.0.0 2008-06-23
 
 * Added doctest: and doctest_require: special directives.

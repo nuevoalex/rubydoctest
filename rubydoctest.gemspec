@@ -57,7 +57,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://rubydoctest.rubyforge.org}
   s.post_install_message = %q{
 rubydoctest comes as an executable that takes a file or directory:
-	
+
   rubydoctest .
 	rubydoctest simple.doctest
 

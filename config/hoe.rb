@@ -2,6 +2,7 @@ require 'rubydoctest/version'
 
 AUTHOR = ['Duane Johnson', 'Tom Locke', 'Dr Nic Williams']  # can also be an array of Authors
 EMAIL = "duane.johnson@gmail.com"
+VERSION = "1.2.0"
 DESCRIPTION = "Ruby version of Python's doctest tool, but a bit different."
 GEM_NAME = 'rubydoctest' # what ppl will type to install your gem
 RUBYFORGE_PROJECT = 'rubydoctest' # The unix name for your project
@@ -48,12 +49,12 @@ end
 
 # Generate all the Rake tasks
 # Run 'rake -T' to see list of generated tasks (from gem root directory)
-$hoe = Hoe.new(GEM_NAME, VERS) do |p|
+$hoe = Hoe.spec(GEM_NAME) do |p|
   p.author = AUTHOR
   p.email = EMAIL
   p.description = DESCRIPTION
   p.summary = DESCRIPTION
-  p.url = HOMEPATH
+  p.urls = [HOMEPATH]
   p.rubyforge_name = RUBYFORGE_PROJECT if RUBYFORGE_PROJECT
   p.test_globs = ["test/**/test_*.rb"]
   p.clean_globs |= ['**/.*.sw?', '*.gem', '.config', '**/.DS_Store']  #An array of file patterns to delete on clean.

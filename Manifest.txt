@@ -28,6 +28,7 @@ tasks/deployment.rake
 tasks/doctests.rake
 tasks/environment.rake
 tasks/website.rake
+test/inline.rb
 textmate/DocTest (Markdown).textmate
 textmate/DocTest (Ruby).textmate
 textmate/DocTest (Text).textmate

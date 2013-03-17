@@ -12,12 +12,12 @@ module RubyDocTest
   #  => -1
   class CodeBlock
     attr_reader :statements, :result, :passed
-    
+
     def initialize(statements = [], result = nil)
       @statements = statements
       @result = result
     end
-    
+
     # === Tests
     # doctest: Single statement with result should pass
     # >> ss = [RubyDocTest::Statement.new([">> a = 1"])]
@@ -51,15 +51,15 @@ module RubyDocTest
           end
       end
     end
-    
+
     def actual_result
       @statements.last.actual_result
     end
-    
+
     def expected_result
       @result.expected_result
     end
-    
+
     def lines
       @statements.map{ |s| s.lines }.flatten +
       @result.lines

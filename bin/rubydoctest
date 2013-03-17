@@ -13,27 +13,27 @@ if ARGV.empty? or options.include?("-h") or options.include?("--help")
   puts <<-DIRECTIONS
 Ruby DocTest #{Rubydoctest::VERSION::STRING}
 USAGE: rubydoctest [options] <files>
-  
+
   rubydoctest parses Ruby files (.rb) or DocTest files (.doctest) for irb-style
   sessions in comments, and runs the commented sessions as tests.
-  
+
   Options:
     General:
       --help   - show this usage / help information
       --single - run all tests in the same ruby environment
       -t<n>    - only run test number n, e.g. -t1 -t3
-    
+
     Output Format:
       --html  - output in HTML format
       --plain - force output in plain text (no Ansi colors) [windows default]
-    
+
     Debug:
       --ignore-interactive - do not heed !!! special directives
       --trace     - turn backtrace on to debug Ruby DocTest
       --debugger  - include ruby-debug library / gem
       --verbose   - print more (useful only with --plain)
       --require=</path/to/require>,</another/path/to/require> - eg. --require=config/environment.rb
-  
+
   See http://github.com/tablatom/rubydoctest/wikis for more information.
   DIRECTIONS
   exit 0
@@ -41,7 +41,7 @@ end
 
 single = options.include?("--single")
 
-requires = ['rubygems', File.dirname(__FILE__) + "/../lib/rubydoctest"]
+requires = ['rubygems', File.absolute_path(File.dirname(__FILE__) + "/../lib/rubydoctest.rb")]
 requires << 'ruby-debug' if options.include?("--debugger")
 
 if options.detect {|opt| opt =~ /^--require=(.+)/}
@@ -91,10 +91,10 @@ END_CMD2
 end
 
 if options.include?("--plain") or RUBY_PLATFORM =~ /mswin|mingw/
-  ruby_lines << "RubyDocTest.output_format = :plain;" 
+  ruby_lines << "RubyDocTest.output_format = :plain;"
   files_runner(RUBY, files, requires, ruby_lines, single)
 elsif options.include?("--html")
-  ruby_lines << "RubyDocTest.output_format = :html;" 
+  ruby_lines << "RubyDocTest.output_format = :html;"
   puts "<html><body><pre>"
   files_runner(RUBY, files, requires, ruby_lines, single)
   puts "</pre></body></html>"

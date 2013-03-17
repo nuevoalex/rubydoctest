@@ -5,7 +5,7 @@ namespace :test do
       system("ruby #{File.dirname(__FILE__)}/../bin/rubydoctest #{File.dirname(__FILE__)}/../doc/*.doctest")
     exit($?.exitstatus)
   end
-  
+
   namespace :doctest do
     desc "Run rstakeout on test/doctest files"
     task :auto do
@@ -14,7 +14,7 @@ namespace :test do
       files = "#{File.dirname(__FILE__)}/../lib/*.rb #{File.dirname(__FILE__)}/../bin/*"
       sh "#{File.dirname(__FILE__)}/../script/rstakeout 'rake test:doctest:changed DOCTESTS=#{tests_path}' #{tests} #{files} --pass-as-env"
     end
-    
+
     desc "Run doctest(s) based on a specific file that changed"
     task :changed do
       file = ENV['CHANGED']
