@@ -1,10 +1,7 @@
 = Ruby DocTest
 
-Official repository:
+Original repository:
 	* http://github.com/tablatom/rubydoctest
-
-Wiki documentation:
-	* http://github.com/tablatom/rubydoctest/wikis
 
 == Description:
 
@@ -17,12 +14,12 @@ allows you to:
 == Synopsis:
 
 rubydoctest comes as an executable that takes a list of files:
-	
+
   rubydoctest lib/*.rb
 	rubydoctest simple.doctest
 
 == Examples:
-	
+
 Here is how you might use RubyDocTest within a ruby source file (say called five.rb):
 
 	# doctest: Add 5 and 5 to get 10
@@ -33,7 +30,7 @@ Here is how you might use RubyDocTest within a ruby source file (say called five
 	end
 
 Here is an example doctest file (say called simple.doctest):
-	
+
 	# Simple test of RubyDocTest
 
 	This is an example test
@@ -61,19 +58,15 @@ Build from source:
 	rake manifest:refresh && rake install
 
 == Testing DocTest:
-	
+
 Ruby DocTest uses itself to test and document itself.
 
 	rake test:doctest
-	
+
 In development of Ruby DocTest, there is an autotest system in-built
 using script/rstakeout
 
 	rake test:doctest:auto
-
-== TextMate Bundle:
-	
-See http://github.com/drnic/ruby-doctest-tmbundle
 
 == License:
 
