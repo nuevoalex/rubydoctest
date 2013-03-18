@@ -41,7 +41,7 @@ end
 
 single = options.include?("--single")
 
-requires = ['rubygems', File.absolute_path(File.dirname(__FILE__) + "/../lib/rubydoctest.rb")]
+requires = ['rubygems', File.absolute_path(File.dirname(__FILE__) + "/../lib/rubydoctest")]
 requires << 'ruby-debug' if options.include?("--debugger")
 
 if options.detect {|opt| opt =~ /^--require=(.+)/}

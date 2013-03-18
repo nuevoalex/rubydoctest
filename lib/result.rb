@@ -5,11 +5,11 @@ require 'lines'
 
 module RubyDocTest
   class Result < Lines
-    
+
     def normalize_result(s)
       s.gsub(/:0x[a-f0-9]{8}>/, ':0xXXXXXXXX>').strip
     end
-    
+
     def expected_result
       @expected_result ||=
         begin
@@ -17,7 +17,7 @@ module RubyDocTest
           ([$1] + (lines[1..-1] || [])).join("\n")
         end
     end
-    
+
     # === Tests
     # doctest: Strings should match
     # >> r = RubyDocTest::Result.new(["=> 'hi'"])

@@ -1,3 +1,12 @@
+== 1.2.0 (unreleased NOT IMPLEMENTED)
+
+* Added support for a setup and teardown step
+* Added optionflag support for ELLIPSES and NORMALIZE_WHITESPACE
+
+== 1.1.0 (unreleased)
+
+* Modified to allow testing exceptions
+
 == 1.0.1 2013-03-17
 
 * Removed website and textmate plugin. Keeping this focused on doctest.

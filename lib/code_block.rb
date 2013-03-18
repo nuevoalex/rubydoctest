@@ -39,6 +39,19 @@ module RubyDocTest
     # >> cb = RubyDocTest::CodeBlock.new(ss, r)
     # >> cb.pass?
     # => true
+    #
+    # doctest: Exceptions should cause a failure
+    # >> ss=[RubyDocTest::Statement.new([">> raise StandardError.new('testing errors')"])]
+    # >> cb = RubyDocTest::CodeBlock.new(ss)
+    # >> cb.pass?
+    # => false
+    #
+    # doctest: Exceptions formated in the result should pass however
+    # >> ss=[RubyDocTest::Statement.new([">> raise StandardError.new('testing errors')"])]
+    # >> r = RubyDocTest::Result.new(["=> 'StandardError: testing errors'"])
+    # >> cb = RubyDocTest::CodeBlock.new(ss, r)
+    # >> cb.pass?
+    # => true
     def pass?
       if @computed
         @passed
@@ -48,6 +61,9 @@ module RubyDocTest
           begin
             actual_results = @statements.map{ |s| s.evaluate }
             @result ? @result.matches?(actual_results.last) : true
+          rescue EvaluationError  => e
+            formatted_error = "#{e.original_exception.class}: #{e.original_exception.message}"
+            @result ? @result.matches?(formatted_error) : false
           end
       end
     end
